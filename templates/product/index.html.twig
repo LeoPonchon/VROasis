@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Produits{% endblock %}
+
+{% block body %}
+<header>
+    <div class="container">
+        <h1 class="logo">Bienvenue dans VR Oasis</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <ul class="product-list">
+            {% for product in products %}
+            <li class="product">
+                <h3>{{ product.getName() }}</h3>
+                <p>Description: {{ product.getDescription() }}</p>
+                <p>Prix: {{ product.getPrice() }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {{ form(form) }}
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 VR Oasis. Tous droits réservés.</p>
+    </div>
+</footer>
+{% endblock %}
