@@ -1,53 +1,41 @@
-/* Reset CSS */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li,
-blockquote,
-figure,
-figcaption,
-hr {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
     line-height: 1.6;
-    background-color: #121212;
-    color: #fff;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
-/* Header Styles */
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 header {
-    background-color: #000;
-    padding: 20px 0;
-    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
+.titre {
     font-size: 2rem;
-    color: #fff;
-}
-
-/* Navigation Styles */
-nav {
-    text-align: center;
+    font-weight: bold;
+    color: #333;
 }
 
 nav ul {
@@ -56,101 +44,143 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin: 0 10px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+    /* Transition douce pour les éléments de navigation */
 }
 
-nav ul li a {
+nav ul li:hover {
+    transform: translateY(-3px);
+    /* Effet de levitation au survol */
+}
+
+/* Main content */
+section {
+    margin-bottom: 30px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #333;
+    /* Couleur des titres */
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Formulaires */
+form {
+    margin-bottom: 30px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    /* Fond */
+    color: #333;
+    /* Couleur du texte dans les champs de saisie */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Ombre légère */
+}
+
+input[type="submit"] {
+    background-color: #333;
+    /* Couleur de fond du bouton de soumission */
     color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    /* Couleur du texte du bouton de soumission */
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Transition pour le changement de couleur de fond */
 }
 
-nav ul li a:hover {
-    color: #00e6e6;
+input[type="submit"]:hover {
+    background-color: #555;
+    /* Couleur de fond du bouton de soumission au survol */
 }
 
-/* Main Content Styles */
-main {
-    padding: 40px 0;
-}
-
-.section-title {
-    font-size: 2rem;
+/* Footer */
+footer {
+    background-color: #fff;
+    /* Couleur de fond du footer */
+    padding: 20px;
     text-align: center;
-    margin-bottom: 40px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    /* Ombre légère */
 }
 
+/* Produit */
 .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 30px;
-    list-style-type: none;
-    /* Cache les points à côté des éléments de la liste */
-    padding: 0;
-    /* Supprime le padding par défaut des listes */
-}
-
-.product-list li {
-    margin-bottom: 10px;
-    /* Ajoute un espacement entre les éléments de la liste */
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .product {
-    background-color: #1a1a1a;
+    background-color: #fff;
+    /* Couleur de fond d'un produit */
+    width: calc(25% - 20px);
+    /* Un quart de la largeur avec marge entre les produits */
     padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
-    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* Ombre légère */
     transition: transform 0.3s ease;
+    /* Transition pour l'effet de survol */
+}
+
+.product:last-child {
+    margin-right: 0;
+    /* Supprimer la marge à droite du dernier produit */
 }
 
 .product:hover {
     transform: translateY(-5px);
+    /* Effet de levitation au survol */
 }
 
-.product h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+
+
+/* Dashboard */
+.dashboard-stats {
+    display: flex;
+    justify-content: space-between;
 }
 
-.product p {
-    font-size: 1rem;
-    color: #ccc;
-    margin-bottom: 20px;
+.stat {
+    flex-basis: 48%;
 }
 
-.product a {
-    display: inline-block;
-    background-color: #00e6e6;
+/* Alertes */
+.alert {
+    background-color: #f44336;
+    /* Couleur de fond de l'alerte */
     color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
+    /* Couleur du texte de l'alerte */
+    padding: 15px;
+    margin-bottom: 15px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Ombre légère */
 }
 
-.product a:hover {
-    background-color: #00cccc;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #000;
-    color: #ccc;
-    padding: 20px 0;
-    text-align: center;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 10px;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
+/* Dark mode */
+.dark-mode {
+    filter: invert(1) hue-rotate(180deg);
+    /* Inversion des couleurs pour le mode sombre */
 }

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block main_content %}
+    <section>
+        <h2>Votre Panier</h2>
+        {% if items %}
+            <p>Voici les articles que vous avez sélectionnés :</p>
+            <ul>
+                {% for item in items %}
+                    <li>{{ item }} - Prix: {{ item }}</li>
+                {% endfor %}
+            </ul>
+            <p>Total: {{ total }}</p>
+            <p>Vous pouvez continuer à explorer notre sélection de produits pour ajouter plus d'articles à votre panier.</p>
+            <p>Pour plus d'informations sur la livraison et les délais, consultez notre page de livraison.</p>
+            <p>Si vous avez des questions ou des préoccupations, n'hésitez pas à consulter notre FAQ ou à nous contacter.</p>
+        {% else %}
+            <p>Votre panier est actuellement vide. Parcourez notre sélection de produits pour trouver quelque chose qui vous intéresse.</p>
+        {% endif %}
+    </section>
+{% endblock %}

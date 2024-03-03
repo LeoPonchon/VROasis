@@ -1,9 +1,6 @@
 <?php
-
-// src/Controller/ProductController.php
 namespace App\Controller;
 
-// ...
 use App\Entity\Product;
 use App\Repository\ProductRepository;
 use App\Form\AddProductType;
@@ -16,20 +13,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
-    #[Route('/product', name: 'product_show')]
-    public function show(ProductRepository $productRepository, EntityManagerInterface $entityManager, Request $request): Response
+    #[Route('/product', name: 'app_product')]
+    public function show(ProductRepository $productRepository): Response
     {
         $products = $productRepository->findAll();
-
-        $product = new Product();
-        $form = $this->createForm(AddProductType::class, $product);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($product);
-            $entityManager->flush();
-            echo "<meta http-equiv='refresh' content='0'>";
-        }
-        return $this->render('product/index.html.twig', ['form' => $form, 'products' => $products]);
+        return $this->render('product/index.html.twig', [ 'products' => $products]);
     }
 }
