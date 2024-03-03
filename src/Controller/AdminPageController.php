@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminPageController extends AbstractController
 {
-    #[Route('/admin', name: 'app_admin_page')]
+    #[Route('/admin', name: 'app_admin')]
     public function show(ProductRepository $productRepository, UserRepository $userRepository, EntityManagerInterface $entityManager, Request $request): Response
     {
         $product = new Product();

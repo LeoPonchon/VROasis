@@ -17,6 +17,7 @@
                     <li><a href="{{ path('index') }}">Accueil</a></li>
                     <li><a href="{{ path('app_product') }}">Produits</a></li>
                     <li><a href="{{ path('app_panier') }}">Panier</a></li>
+                    <li><a href="{{ path('app_admin') }}">Admin panel</a></li>
                     <li>
                         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                             <a class="link" href="{{ path('app_logout') }}">Logout</a>
