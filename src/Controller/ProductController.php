@@ -19,4 +19,21 @@ class ProductController extends AbstractController
         $products = $productRepository->findAll();
         return $this->render('product/index.html.twig', [ 'products' => $products]);
     }
+
+    #[Route('/product/{id}/add-to-cart', name: 'app_product_add_to_panier')]
+    public function addToPanier(Product $product, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->getUser();
+        $cart = $user->getPanier();
+    
+        $cart[] = $product->getId();
+    
+        $user->setPanier($cart);
+        
+        $entityManager->persist($user);
+        $entityManager->flush();
+    
+        // Redirect back to the product listing page
+        return $this->redirectToRoute('app_product');
+    }
 }

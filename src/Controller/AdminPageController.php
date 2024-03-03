@@ -27,8 +27,6 @@ class AdminPageController extends AbstractController
             $entityManager->flush();
         }
 
-        $users = ["toto", "titi", "tutu"];
-        
         $products = $productRepository->findAll();
         $users = $userRepository->findAll();
         return $this->render('admin_page/index.html.twig', ['users' => $users, 'form' => $form, 'products' => $products]);

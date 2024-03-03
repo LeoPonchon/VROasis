@@ -6,7 +6,10 @@
             <h2>{{ product.getName() }}</h2>
             <h3>{{ product.getPrice() }}€</h3>
             {{ product.getDescription() }}</br>
-            <b>{{ product.getCategorie() }}</b>
+            <b>{{ product.getCategorie() }}</b></br>
+            <form action="{{ path('app_product_add_to_panier', {'id': product.getId()}) }}" method="post">
+                <button type="submit">Ajouter au panier</button>
+            </form>
         </li>
         {% endfor %}
     </ul>

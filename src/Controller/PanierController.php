@@ -9,9 +9,11 @@ use Symfony\Component\Routing\Attribute\Route;
 class PanierController extends AbstractController
 {
     #[Route('/panier', name: 'app_panier')]
-    public function index(): Response
+    public function index(Product $product): Response
     {
         $items = ["test","test2","test3"];
+        $panier = $productRepository->findAll();
+
         $total = 10;
 
         return $this->render('panier/index.html.twig', ['total' => $total, 'items' => $items]);

@@ -6,9 +6,7 @@
         {% if items %}
             <p>Voici les articles que vous avez sélectionnés :</p>
             <ul>
-                {% for item in items %}
-                    <li>{{ item }} - Prix: {{ item }}</li>
-                {% endfor %}
+                <li>{{ panier }} - Prix: {{ product }}</li>
             </ul>
             <p>Total: {{ total }}</p>
             <p>Vous pouvez continuer à explorer notre sélection de produits pour ajouter plus d'articles à votre panier.</p>
