@@ -20,11 +20,12 @@ class PanierController extends AbstractController
         $total = 0;
 
         $panier = $userRepository->findColumn("panier", $this->getUser()->getId())[0]['panier'];
-
-        foreach ($panier as $product) {
-            $nomArticle[] = $product->getName();
-            $prixArticle[] = $product->getPrice();
-            $total += $product->getPrice();
+        if($panier) {
+            foreach ($panier as $product) {
+                $nomArticle[] = $product->getName();
+                $prixArticle[] = $product->getPrice();
+                $total += $product->getPrice();
+            }
         }
 
         return $this->render('panier/index.html.twig', ['nomArticle' => $nomArticle, 'prixArticle' => $prixArticle, 'total' => $total, 'panier' => $panier]);

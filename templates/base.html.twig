@@ -16,7 +16,9 @@
                 <ul>
                     <li><a href="{{ path('index') }}">Accueil</a></li>
                     <li><a href="{{ path('app_product') }}">Produits</a></li>
-                    <li><a href="{{ path('app_panier') }}">Panier</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <li><a href="{{ path('app_panier') }}">Panier</a></li>
+                    {% endif %}
                     <li><a href="{{ path('app_admin') }}">Admin panel</a></li>
                     <li>
                         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
