@@ -3,7 +3,6 @@
     <ul class="product-list">
         {% for i in range(0, products|length-1) %}
             <li class="product">
-                {{ dump(ratings[i]) }}
                 <h2>{{ products[i].name }}</h2>
                 <h3>{{ products[i].price }}€</h3>
                 {{ products[i].description }}</br>

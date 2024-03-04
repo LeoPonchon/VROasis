@@ -5,6 +5,9 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -12,6 +15,12 @@ body {
 }
 
 .container {
+    flex: 1;
+    /* Le contenu du container s'étire pour remplir l'espace restant */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centrer verticalement le contenu */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -115,10 +124,12 @@ input[type="submit"]:hover {
 footer {
     background-color: #fff;
     /* Couleur de fond du footer */
-    padding: 20px;
     text-align: center;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     /* Ombre légère */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Produit */
@@ -177,10 +188,4 @@ footer {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     /* Ombre légère */
-}
-
-/* Dark mode */
-.dark-mode {
-    filter: invert(1) hue-rotate(180deg);
-    /* Inversion des couleurs pour le mode sombre */
 }
