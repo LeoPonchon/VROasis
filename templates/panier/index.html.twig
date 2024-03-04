@@ -6,16 +6,20 @@
         {% if panier %}
             <p>Voici les articles que vous avez sélectionnés :</p>
             <ul>
-                {% for i in panier %}
-                    <li>{{ i.getName() }} - {{ i.getPrice() }}€</li>
+                {% for product in panier %}
+                    <li>
+                        {{ product.getName() }} - {{ product.getPrice() }}€
+                        <form action="{{ path('app_panier_remove_from_panier', {'id': product.getId()}) }}" method="post">
+                            <button type="submit">Retirer du panier</button>
+                        </form>
+                    </li>
                 {% endfor %}
             </ul>
-            <p>Total: {{ total }}</p>
-            <p>Vous pouvez continuer à explorer notre sélection de produits pour ajouter plus d'articles à votre panier.</p>
-            <p>Pour plus d'informations sur la livraison et les délais, consultez notre page de livraison.</p>
-            <p>Si vous avez des questions ou des préoccupations, n'hésitez pas à consulter notre FAQ ou à nous contacter.</p>
+            <p>Total: {{ total }}€</p>
+            <p>Vous pouvez continuer à explorer notre <a href="{{ path('app_product') }}">sélection de produits</a> pour ajouter plus d'articles à votre panier.</p>
+            <p>Pour plus d'informations ou si vous avez des questions, n'hésitez pas à nous contacter.</p>
         {% else %}
-            <p>Votre panier est actuellement vide. Parcourez notre sélection de produits pour trouver quelque chose qui vous intéresse.</p>
+            <p>Votre panier est actuellement vide. Parcourez notre <a href="{{ path('app_product') }}">sélection de produits</a> pour trouver quelque chose qui vous intéresse.</p>
         {% endif %}
     </section>
 {% endblock %}

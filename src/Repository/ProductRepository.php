@@ -21,6 +21,15 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    public function findColumn(string $column, int $id): array
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->select("p.$column")
+            ->where("p.id = $id");
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 //    /**
 //     * @return Product[] Returns an array of Product objects
 //     */

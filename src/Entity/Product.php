@@ -26,6 +26,9 @@ class Product
     #[ORM\Column(length: 255)]
     private ?string $categorie = null;
 
+    #[ORM\Column(type: Types::SIMPLE_ARRAY)]
+    private array $rating = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Product
     public function setCategorie(string $categorie): static
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getRating(): array
+    {
+        return $this->rating;
+    }
+
+    public function setRating(array $rating): static
+    {
+        $this->rating = $rating;
 
         return $this;
     }
