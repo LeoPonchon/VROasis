@@ -26,7 +26,7 @@ class ProductController extends AbstractController
         $user = $this->getUser();
         $cart = $user->getPanier();
     
-        $cart[] = $product->getId();
+        $cart[] = $product;
     
         $user->setPanier($cart);
         

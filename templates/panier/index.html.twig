@@ -3,10 +3,12 @@
 {% block main_content %}
     <section>
         <h2>Votre Panier</h2>
-        {% if items %}
+        {% if panier %}
             <p>Voici les articles que vous avez sélectionnés :</p>
             <ul>
-                <li>{{ panier }} - Prix: {{ product }}</li>
+                {% for i in panier %}
+                    <li>{{ i.getName() }} - {{ i.getPrice() }}€</li>
+                {% endfor %}
             </ul>
             <p>Total: {{ total }}</p>
             <p>Vous pouvez continuer à explorer notre sélection de produits pour ajouter plus d'articles à votre panier.</p>
