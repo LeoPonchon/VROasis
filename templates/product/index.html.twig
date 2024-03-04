@@ -16,9 +16,9 @@
                     
                     {% set average = sum / count %}
 
-                    {% for i in range(1, 6) %}
-                        <a href="{{ path('app_product_rate', {'id': products[i].getId(), 'stars': i}) }}">
-                            {% if average is defined and i <= average %}
+                    {% for j in range(1, 6) %}
+                        <a href="{{ path('app_product_rate', {'id': products[i].getId(), 'stars': j}) }}">
+                            {% if average is defined and j <= average %}
                                 <span class="star">&#9733;</span>
                             {% else %}
                                 <span class="star">&#9734;</span>
