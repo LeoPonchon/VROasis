@@ -3,34 +3,38 @@
     <ul class="product-list">
         {% for i in range(0, products|length-1) %}
             <li class="product">
+                <b>{{ products[i].categorie }}</b></br>
                 <h2>{{ products[i].name }}</h2>
                 <h3>{{ products[i].price }}€</h3>
                 {{ products[i].description }}</br>
                 <div class="rating">
                     {% set sum = 0 %}
                     {% set count = ratings[i]|length %}
+                    {% if count > 0 %}
 
-                    {% for rating in ratings[i] %}
-                        {% set sum = sum + rating|number_format %}
-                    {% endfor %}
-                    
-                    {% set average = sum / count %}
+                        {% for rating in ratings[i] %}
+                            {% set sum = sum + rating|number_format %}
+                        {% endfor %}
+                        
+                        {% set average = sum / count %}
 
-                    {% for j in range(1, 6) %}
-                        <a href="{{ path('app_product_rate', {'id': products[i].getId(), 'stars': j}) }}">
-                            {% if average is defined and j <= average %}
-                                <span class="star">&#9733;</span>
-                            {% else %}
-                                <span class="star">&#9734;</span>
-                            {% endif %}
-                        </a>
-                    {% endfor %}
-                    ({{ average }})
+                        {% for j in range(1, 6) %}
+                            <a href="{{ path('app_product_rate', {'id': products[i].getId(), 'stars': j}) }}">
+                                {% if average is defined and j <= average %}
+                                    <span class="star">&#9733;</span>
+                                {% else %}
+                                    <span class="star">&#9734;</span>
+                                {% endif %}
+                            </a>
+                        {% endfor %}
+                        ({{ average|round(2) }})
+                    {% endif %}
                 </div>
-                <b>{{ products[i].categorie }}</b></br>
-                <form action="{{ path('app_product_add_to_panier', {'id': products[i].id}) }}" method="post">
-                    <button type="submit">Ajouter au panier</button>
-                </form>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <form action="{{ path('app_product_add_to_panier', {'id': products[i].id}) }}" method="post">
+                        <button type="submit">Ajouter au panier</button>
+                    </form>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>
