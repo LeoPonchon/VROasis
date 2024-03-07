@@ -27,9 +27,7 @@
                                 {% endif %}
                             </a>
                         {% endfor %}
-                        ({{ average|round(2) }})
-                    {% else %}
-                        {% count = 1 %}
+                        ({{ average|round(1) }})
                     {% endif %}
                 </div></br>
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}

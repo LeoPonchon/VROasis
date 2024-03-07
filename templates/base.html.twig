@@ -5,8 +5,6 @@
     <title>{% block title %}VR Oasis{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="icon" href="{{ asset('vr_icon.png') }}">
-    {% block stylesheets %}
-    {% endblock %}
 </head>
 <body>
     <header>
@@ -31,14 +29,12 @@
             </nav>
         </div>
     </header>
-
     <main>
-        <div class="container">
+        <div class="container main_container">
             {% block main_content %}
             {% endblock %}
         </div>
     </main>
-
     <footer>
         <div class="container">
             <p>&copy; 2024 VR Oasis. Tous droits réservés.</p>
