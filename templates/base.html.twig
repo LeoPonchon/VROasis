@@ -17,12 +17,12 @@
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                         <li><a href="{{ path('app_panier') }}">Panier</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="{{ path('app_admin') }}">Paneau Admin</a></li>
+                            <li><a href="{{ path('app_admin') }}">Panneau Admin</a></li>
                         {% endif %}
                         <li><a class="link" href="{{ path('app_logout') }}">Se déconnecter</a></li>
                     {% else %}
-                        <li><a class="link" href="{{ path('app_register') }}">Inscription</a></li>
-                        <li><a class="link" href="{{ path('app_login') }}">Se connecter</a></li>
+                        <li><a class="link" href="{{ path('app_register') }}">Créer un compte</a></li>
+                        <li><a class="link" href="{{ path('app_login') }}">Identifiez-vous</a></li>
                     {% endif %}
                     </li>
                 </ul>
