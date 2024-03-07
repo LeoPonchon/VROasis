@@ -28,8 +28,10 @@
                             </a>
                         {% endfor %}
                         ({{ average|round(2) }})
+                    {% else %}
+                        {% count = 1 %}
                     {% endif %}
-                </div>
+                </div></br>
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <form action="{{ path('app_product_add_to_panier', {'id': products[i].id}) }}" method="post">
                         <button type="submit">Ajouter au panier</button>

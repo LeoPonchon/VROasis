@@ -31,4 +31,20 @@ class AdminPageController extends AbstractController
         $users = $userRepository->findAll();
         return $this->render('admin_page/index.html.twig', ['users' => $users, 'form' => $form, 'products' => $products]);
     }
+
+    #[Route('/admin/user/delete/{id}', name: 'delete_user')]
+    public function deleteUser(User $user, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($user);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_admin');
+    }
+
+    #[Route('/admin/product/delete/{id}', name: 'delete_product')]
+    public function deleteProduct(Product $product, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($product);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_admin');
+    }
 }
