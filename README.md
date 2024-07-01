@@ -12,7 +12,6 @@ Bienvenue sur VROasis, votre destination ultime pour l'achat d'objets de réalit
 - [Fonctionnalités](#fonctionnalités)
 - [Prérequis](#prérequis)
 - [Installation](#installation)
-- [Configuration](#configuration)
 - [Utilisation](#utilisation)
 
 ## Introduction
@@ -54,29 +53,6 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
     ```bash
     composer install
-    ```
-
-4. Configurez votre fichier `.env` pour correspondre à votre environnement de développement. Assurez-vous de configurer les informations de connexion à la base de données.
-
-5. Créez la base de données et appliquez les migrations :
-
-    ```bash
-    php bin/console doctrine:database:create
-    php bin/console doctrine:migrations:migrate
-    ```
-
-## Configuration
-
-1. Renommez le fichier `.env` en `.env.local` :
-
-    ```bash
-    cp .env .env.local
-    ```
-
-2. Modifiez le fichier `.env.local` pour configurer vos variables d'environnement, notamment les informations de la base de données :
-
-    ```
-    DATABASE_URL="mysql://user:password@127.0.0.1:3306/vroasis"
     ```
 
 ## Utilisation
