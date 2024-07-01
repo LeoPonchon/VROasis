@@ -41,7 +41,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 1. Clonez le dépôt :
 
     ```bash
-    git clone https://github.com/votre-utilisateur/VROasis.git
+    git clone https://github.com/LeoPonchon/VROasis.git
     ```
 
 2. Accédez au répertoire du projet :
