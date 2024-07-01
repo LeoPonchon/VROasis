@@ -4,7 +4,7 @@ Bien sûr ! Voici un exemple de README pour votre site de vente fictif VROasis b
 
 # VROasis
 
-Bienvenue sur VROasis, votre destination ultime pour l'achat d'objets de réalité virtuelle. Ce site est un projet fictif développé avec Symfony.
+Bienvenue sur VROasis, une boutique pour l'achat d'objets de réalité virtuelle. Ce site est un projet fictif développé avec Symfony.
 
 ## Table des matières
 
