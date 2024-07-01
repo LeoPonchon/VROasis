@@ -65,13 +65,6 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
     php bin/console doctrine:migrations:migrate
     ```
 
-6. Installez les assets front-end :
-
-    ```bash
-    npm install
-    npm run dev
-    ```
-
 ## Configuration
 
 1. Renommez le fichier `.env` en `.env.local` :
