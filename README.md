@@ -70,5 +70,3 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
     ```
 ---
 
-Merci d'utiliser VROasis ! Si vous avez des questions, n'hésitez pas à nous contacter.
-
