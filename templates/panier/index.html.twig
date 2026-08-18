@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block main_content %}
+    <section>
+        <h2>Votre Panier</h2>
+        {% if panier %}
+            <p>Voici les articles que vous avez sélectionnés :</p>
+            <ul>
+                {% for product in panier %}
+                    <li>
+                        {{ product.getName() }} - {{ product.getPrice() }}€
+                        <form action="{{ path('app_panier_remove_from_panier', {'id': product.getId()}) }}" method="post">
+                            <button type="submit">Retirer du panier</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p>Total: {{ total }}€</p>
+            <p>Vous pouvez continuer à explorer notre <a href="{{ path('app_product') }}">sélection de produits</a> pour ajouter plus d'articles à votre panier.</p>
+            <p>Pour plus d'informations ou si vous avez des questions, n'hésitez pas à nous contacter.</p>
+        {% else %}
+            <p>Votre panier est actuellement vide. Parcourez notre <a href="{{ path('app_product') }}">sélection de produits</a> pour trouver quelque chose qui vous intéresse.</p>
+        {% endif %}
+    </section>
+{% endblock %}

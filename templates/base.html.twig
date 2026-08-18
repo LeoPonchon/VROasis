@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}VR Oasis{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="icon" href="{{ asset('vr_icon.png') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="titre">Bienvenue dans VR Oasis</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('index') }}">Accueil</a></li>
+                    <li><a href="{{ path('app_product') }}">Produits</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <li><a href="{{ path('app_panier') }}">Panier</a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('app_admin') }}">Panneau Admin</a></li>
+                        {% endif %}
+                        <li><a class="link" href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                    {% else %}
+                        <li><a class="link" href="{{ path('app_register') }}">Créer un compte</a></li>
+                        <li><a class="link" href="{{ path('app_login') }}">Identifiez-vous</a></li>
+                    {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container main_container">
+            {% block main_content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 VR Oasis. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

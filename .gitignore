@@ -1,0 +1,38 @@
+# Symfony
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+
+# Symfony asset mapper
+/public/assets/
+/assets/vendor/
+
+# Composer
+/composer.lock
+
+# PHPUnit
+/phpunit.xml
+.phpunit.result.cache
+
+# Node / frontend
+/node_modules/
+
+# IDE
+/.idea/
+/.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Test / coverage
+/coverage/
+
+.env
+.env.test
