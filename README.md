@@ -1,68 +1,76 @@
 # VROasis
 
-Bienvenue sur VROasis, une boutique pour l'achat d'objets de réalité virtuelle. Ce site est un projet fictif développé avec Symfony.
+Projet e-commerce fictif consacré aux produits de **réalité virtuelle**, développé avec **Symfony 7** dans un contexte pédagogique.
 
-## Table des matières
-
-- [Introduction](#introduction)
-- [Fonctionnalités](#fonctionnalités)
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-
-## Introduction
-
-VROasis est un site de commerce électronique spécialisé dans la vente de produits de réalité virtuelle. Ce projet a été créé à des fins éducatives pour démontrer l'utilisation du framework Symfony dans le développement d'une application web complète.
+L'application met en pratique l'authentification, un catalogue, un panier, les commandes et l'administration d'une boutique web.
 
 ## Fonctionnalités
 
-- Inscription et authentification des utilisateurs
-- Catalogue de produits de réalité virtuelle
-- Ajout de produits au panier
-- Passation de commandes
-- Tableau de bord administratif pour la gestion des produits et des commandes
+- inscription et authentification ;
+- catalogue de produits VR ;
+- panier ;
+- passage de commandes ;
+- gestion des produits ;
+- gestion des commandes ;
+- espace/tableau de bord administratif.
 
-## Prérequis
+## Stack
 
-Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
+- PHP **8.2+**
+- Symfony **7.0**
+- Doctrine ORM / DBAL
+- Twig
+- Symfony Security
+- Symfony AssetMapper / UX
+- PHPUnit
 
-- PHP >= 7.4
-- Composer
-- Symfony CLI (optionnel mais recommandé)
-- MySQL ou un autre SGBD compatible
+> Le projet exige PHP 8.2 ou plus via `composer.json`.
 
 ## Installation
 
-1. Clonez le dépôt :
+```bash
+git clone https://github.com/LeoPonchon/VROasis.git
+cd VROasis
+composer install
+```
 
-    ```bash
-    git clone https://github.com/LeoPonchon/VROasis.git
-    ```
+Configurez ensuite votre environnement local dans `.env.local`, notamment `DATABASE_URL`.
 
-2. Accédez au répertoire du projet :
+Exemple de workflow Doctrine selon votre environnement :
 
-    ```bash
-    cd VROasis
-    ```
+```bash
+php bin/console doctrine:database:create
+php bin/console doctrine:migrations:migrate
+```
 
-3. Installez les dépendances avec Composer :
+Si le projet ne contient pas encore de migration correspondant à votre base, adaptez cette étape à l'état du schéma.
 
-    ```bash
-    composer install
-    ```
+## Lancer l'application
 
-## Utilisation
+Avec Symfony CLI :
 
-1. Démarrez le serveur Symfony :
+```bash
+symfony server:start
+```
 
-    ```bash
-    symfony server:start
-    ```
+Ou avec le serveur PHP intégré :
 
-2. Accédez à l'application dans votre navigateur à l'adresse suivante :
+```bash
+php -S localhost:8000 -t public
+```
 
-    ```
-    http://localhost:8000
-    ```
----
+Puis ouvrez :
 
+```text
+http://localhost:8000
+```
+
+## Tests
+
+```bash
+php bin/phpunit
+```
+
+## Contexte
+
+VROasis est un projet éducatif : les produits et scénarios de commerce sont fictifs et servent à démontrer la construction d'une application Symfony complète.
